@@ -8,6 +8,24 @@
       "targetDailyRateSeconds": 20,
       "note": "怀表机芯，走时偏快",
       "createdAt": "2026-06-16T00:00:00.000Z"
+    },
+    {
+      "id": "clock_demo_b",
+      "code": "AT-7750-22",
+      "escapementType": "凸轮导柱轮计时码表",
+      "balanceFrequency": "28800vph",
+      "targetDailyRateSeconds": 15,
+      "note": "计时码表，保养后监测",
+      "createdAt": "2026-09-14T08:00:24.473Z"
+    },
+    {
+      "id": "clock_demo_c",
+      "code": "PP-240Q-03",
+      "escapementType": "Gyromax 摆轮",
+      "balanceFrequency": "21600vph",
+      "targetDailyRateSeconds": 10,
+      "note": "珍珠陀机芯",
+      "createdAt": "2026-09-13T08:00:24.473Z"
     }
   ],
   "adjustments": [
@@ -19,6 +37,33 @@
       "amount": "游丝快慢针向慢侧微调0.4格",
       "note": "初次调校，先保守处理",
       "createdAt": "2026-06-16T00:00:00.000Z"
+    },
+    {
+      "id": "adjustment_demo_b",
+      "clockId": "clock_demo_b",
+      "currentDailyRateSeconds": 22,
+      "direction": "快慢针方向",
+      "amount": "快慢针向快侧微调0.2格并检查摆夹板",
+      "note": "洗油保养后首次调校",
+      "createdAt": "2026-09-14T08:00:24.473Z"
+    },
+    {
+      "id": "adjustment_demo_c1",
+      "clockId": "clock_demo_c",
+      "currentDailyRateSeconds": 41,
+      "direction": "慢针方向",
+      "amount": "微调偏心螺丝 1/8 圈",
+      "note": "首轮调校",
+      "createdAt": "2026-09-13T08:00:24.473Z"
+    },
+    {
+      "id": "adjustment_demo_c2",
+      "clockId": "clock_demo_c",
+      "currentDailyRateSeconds": 16,
+      "direction": "快慢针方向",
+      "amount": "更换中心轮后重新洗油调校",
+      "note": "上一轮预警处理：更换磨损轮轴",
+      "createdAt": "2026-09-16T16:00:24.473Z"
     }
   ],
   "retests": [
@@ -26,11 +71,124 @@
       "id": "retest_demo",
       "clockId": "clock_demo",
       "adjustmentId": "adjustment_demo",
-      "testedAt": "2026-06-16T00:00:00.000Z",
+      "testedAt": "2026-09-16T08:00:24.473Z",
       "dailyRateSeconds": 31,
       "amplitude": 248,
       "qualified": false,
       "note": "仍偏快，振幅尚可"
+    },
+    {
+      "id": "retest_demo_2",
+      "clockId": "clock_demo",
+      "adjustmentId": "adjustment_demo",
+      "testedAt": "2026-09-18T05:00:24.473Z",
+      "dailyRateSeconds": 29,
+      "amplitude": 219,
+      "qualified": false,
+      "note": "摆幅明显下跌，疑似发条力矩不足"
+    },
+    {
+      "id": "retest_demo_b1",
+      "clockId": "clock_demo_b",
+      "adjustmentId": "adjustment_demo_b",
+      "testedAt": "2026-09-15T08:00:24.473Z",
+      "dailyRateSeconds": 12,
+      "amplitude": 301,
+      "qualified": true,
+      "note": "状态良好"
+    },
+    {
+      "id": "retest_demo_b2",
+      "clockId": "clock_demo_b",
+      "adjustmentId": "adjustment_demo_b",
+      "testedAt": "2026-09-17T06:00:24.473Z",
+      "dailyRateSeconds": 14,
+      "amplitude": 272,
+      "qualified": true,
+      "note": "摆幅回落，继续观察"
+    },
+    {
+      "id": "retest_demo_c1",
+      "clockId": "clock_demo_c",
+      "adjustmentId": "adjustment_demo_c1",
+      "testedAt": "2026-09-13T18:00:24.473Z",
+      "dailyRateSeconds": 18,
+      "amplitude": 288,
+      "qualified": false,
+      "note": "摆幅正常"
+    },
+    {
+      "id": "retest_demo_c2",
+      "clockId": "clock_demo_c",
+      "adjustmentId": "adjustment_demo_c1",
+      "testedAt": "2026-09-14T14:00:24.473Z",
+      "dailyRateSeconds": 16,
+      "amplitude": 255,
+      "qualified": false,
+      "note": "摆幅大跌，检查轮系"
+    },
+    {
+      "id": "retest_demo_c3",
+      "clockId": "clock_demo_c",
+      "adjustmentId": "adjustment_demo_c2",
+      "testedAt": "2026-09-17T12:00:24.473Z",
+      "dailyRateSeconds": 7,
+      "amplitude": 296,
+      "qualified": true,
+      "note": "新调校周期：摆幅恢复，日差达标"
+    }
+  ],
+  "warnings": [
+    {
+      "id": "warning_demo_a",
+      "clockId": "clock_demo",
+      "retestId": "retest_demo_2",
+      "prevRetestId": "retest_demo",
+      "adjustmentId": "adjustment_demo",
+      "prevAmplitude": 248,
+      "amplitude": 219,
+      "amplitudeDrop": 29,
+      "createdAt": "2026-09-18T05:00:24.473Z",
+      "status": "open",
+      "confirmedAt": null,
+      "handler": "",
+      "note": "",
+      "clearedAt": null,
+      "clearAdjustmentId": null
+    },
+    {
+      "id": "warning_demo_b",
+      "clockId": "clock_demo_b",
+      "retestId": "retest_demo_b2",
+      "prevRetestId": "retest_demo_b1",
+      "adjustmentId": "adjustment_demo_b",
+      "prevAmplitude": 301,
+      "amplitude": 272,
+      "amplitudeDrop": 29,
+      "createdAt": "2026-09-17T06:00:24.473Z",
+      "status": "confirmed",
+      "confirmedAt": "2026-09-17T07:00:24.473Z",
+      "handler": "周师傅",
+      "note": "已检查发条盒，力矩输出正常，列入重点观察",
+      "clearedAt": null,
+      "clearAdjustmentId": null
+    },
+    {
+      "id": "warning_demo_c",
+      "clockId": "clock_demo_c",
+      "retestId": "retest_demo_c2",
+      "prevRetestId": "retest_demo_c1",
+      "adjustmentId": "adjustment_demo_c1",
+      "prevAmplitude": 288,
+      "amplitude": 255,
+      "amplitudeDrop": 33,
+      "createdAt": "2026-09-14T14:00:24.473Z",
+      "status": "cleared",
+      "confirmedAt": "2026-09-14T16:00:24.473Z",
+      "handler": "李技师",
+      "note": "发现中心轮轴轻微磨损，安排更换后重新调校",
+      "clearedAt": "2026-09-16T16:00:24.473Z",
+      "clearAdjustmentId": "adjustment_demo_c2"
     }
   ]
 }
